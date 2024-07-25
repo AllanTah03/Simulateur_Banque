@@ -1,2 +1,3 @@
 ﻿  Simu_Banque.cpp
+C:\Users\PC\Documents\GitHub\Simulateur_Banque\Simu_Banque\Simu_Banque.cpp(120,6): warning C4101: 'n' : variable locale non référencée
   Simu_Banque.vcxproj -> C:\Users\PC\Documents\GitHub\Simulateur_Banque\x64\Debug\Simu_Banque.exe
