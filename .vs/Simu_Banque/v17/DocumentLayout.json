@@ -5,6 +5,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{0F6C395A-B1B8-47C3-B946-3072B54D2AB8}|Simu_Banque\\Simu_Banque.vcxproj|C:\\Users\\PC\\Documents\\GitHub\\Simulateur_Banque\\Simu_Banque\\Simu_Banque.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0F6C395A-B1B8-47C3-B946-3072B54D2AB8}|Simu_Banque\\Simu_Banque.vcxproj|solutionrelative:Simu_Banque\\Simu_Banque.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC\\source\\repos\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +17,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -28,9 +31,43 @@
               "RelativeDocumentMoniker": "Simu_Banque\\Simu_Banque.cpp",
               "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Simulateur_Banque\\Simu_Banque\\Simu_Banque.cpp",
               "RelativeToolTip": "Simu_Banque\\Simu_Banque.cpp",
-              "ViewState": "AQIAAIsAAAAAAAAAAAAAAJ0AAAAlAAAA",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAGMAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-07-24T06:32:55.126Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "abbeac1c-03b2-41bc-aced-4ba262d0d60e",
+        "Display": 0,
+        "X": -5,
+        "Y": 172,
+        "Width": 1617,
+        "Height": 821,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Exercice_avec_menu_pour_personne.cpp",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne.cpp",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne.cpp",
+              "RelativeToolTip": "..\\..\\..\\source\\repos\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne.cpp",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACMAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-25T07:05:52.95Z",
               "EditorCaption": ""
             }
           ]

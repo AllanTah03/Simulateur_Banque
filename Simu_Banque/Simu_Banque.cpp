@@ -2,7 +2,9 @@
 #include <iostream>
 #include<string>
 #include<fstream>
+#include<cstdlib>
 using namespace std;
+
 
 class CompteBancaire
 {
@@ -30,6 +32,11 @@ public:
 	{
 		cout << "Le solde est de : " << solde << " $. " << endl;
 	}
+	
+	double getSolde() const
+	{
+		return solde;
+	}
 
 	string setNom(string name)
 	{
@@ -51,35 +58,65 @@ public:
 
 };
 
+struct Noeud
+{
+	CompteBancaire comptes;
+	Noeud* suivant;
+};
+
+
+
 class Banque : private CompteBancaire
 {
+private:
+	Noeud* tete;
 public:
 	int compteur; // Compteur pour suivre le nombre de compte créés
-	//CompteBancaire* comptes = new CompteBancaire[compteur]; // Tableau statique de compte bancaire
-	CompteBancaire comptes[100];
-	Banque() :compteur(0){}
-
-	void creerCompte(string nom, double solde_initial = 0.0)
+	
+	Noeud* creerNoeud(CompteBancaire comptes)
 	{
+		Noeud* nouveauNoeud = new Noeud();
+		nouveauNoeud->comptes = comptes;
+		nouveauNoeud->suivant = nullptr;
+		return nouveauNoeud;
+	}
+
+	void ajouterCompte( CompteBancaire comptes)
+	{
+		Noeud* nouveauNoeud = creerNoeud(comptes);
+		nouveauNoeud->suivant = tete;
+		tete = nouveauNoeud;
+	}
+
+	void creerCompte()
+	{
+		string nom;
+		double solde_initial = 0.0;
+
 		cout << " Veuillez entrer votre nom : ";
 		cin >> nom;
-		comptes[compteur] = CompteBancaire(nom, solde_initial);
 		cout << "Le solde initial de votre compte est de : " << solde_initial << " $. " << endl;
+
+		CompteBancaire comptes(nom, solde_initial);
+		ajouterCompte(comptes);
 		compteur++;
 	}
 
 	void deposer(string nom, double montant)
 	{
-		for (int i = 0; i < compteur; i++)
+		Noeud* temp = tete;
+
+		while (temp != nullptr)
 		{
-			if (comptes[i].getNom() == nom)
+			if (temp->comptes.getNom() == nom)
 			{
 				cout << "Quel montant voulez-vous deposer sur votre compte ? " << endl << "Montant : ";
 				cin >> montant;
-				comptes[i].deposer(montant);
-				cout << "Votre compte a ete debiter de " << montant << " $. " << endl;
+				temp->comptes.deposer(montant);
+				cout << "Votre compte a ete crediter de " << montant << " $. " << endl;
 				return;
 			}
+			temp = temp->suivant;
 		}
 		cout << "Compte non trouve. " << endl;
 		
@@ -87,28 +124,48 @@ public:
 
 	void retirer(string nom, double montant)
 	{
-		for (int i = 0; i < compteur; i++)
+		Noeud* temp = tete;
+
+		while (temp != nullptr)
 		{
-			if (comptes[i].getNom() == nom)
+			if (temp->comptes.getNom() == nom)
 			{
-				cout << " Quel montant voulez-vous retirer de votre compte ? " << endl << "Montant : ";
+				cout << "Quel montant voulez-vous retirer sur votre compte ? " << endl << "Montant : ";
 				cin >> montant;
-				comptes[i].retirer(montant);
-				cout << "Votre compte a ete crediter de " << montant << " $. " << endl;
+				temp->comptes.retirer(montant);
+				cout << "Votre compte a ete debiter de " << montant << " $. " << endl;
 				return;
 			}
+			temp = temp->suivant;
 		}
 		cout << "Compte non trouve. " << endl;
 	}
 
 	void afficherSolde(string nom)
 	{
-		for (int i = 0; i < compteur; i++)
+		Noeud* temp = tete;
+
+		while (temp!=nullptr)
 		{
-			if (comptes[i].getNom() == nom)
+			if (temp->comptes.getNom() == nom)
 			{
-				comptes[i].afficherSolde();
+				temp->comptes.afficherSolde();
+				return;
 			}
+			temp = temp->suivant;
+		}
+	}
+
+	void afficherListe()
+	{
+		Noeud* temp = tete;
+		cout << "Liste des comptes bancaires existants : " << endl;
+
+		while (temp != nullptr)
+		{			
+			cout <<"Nom : " << temp->comptes.getNom() << " \n";
+			cout << "Solde : " << temp->comptes.getSolde() << " $." << endl<< endl;
+			temp = temp->suivant;
 		}
 	}
 };
@@ -119,11 +176,10 @@ int main()
 {
 	int n,choix1,i=0;
 	double montant = {};
-	string anarana;
+	string anarana,choix2;
 	Banque banque;
+	Noeud* tete = nullptr;
 	
-	banque.creerCompte("",0);
-
 	do
 	{
 		cout << "Menu : " << endl;
@@ -131,14 +187,15 @@ int main()
 		cout << "2. Deposer de l'argent " << endl;
 		cout << "3. Retirer de l'argent " << endl;
 		cout << "4. Afficher le solde " << endl;
-		cout << "5. Quitter " << endl;
+		cout << "5. Afficher tout les comptes " << endl;
+		cout << "7. Quitter " << endl;
 		cin >> choix1;
 
 		switch (choix1)
 		{
 			case 1:
 			{
-				banque.creerCompte("", 0);
+				banque.creerCompte();
 				break;
 			}
 			case 2:
@@ -146,9 +203,6 @@ int main()
 				cout << "Quel est votre nom : ";
 				cin >> anarana;
 				banque.deposer(anarana, montant);
-				
-				//while(anarana!=)
-				//banque.deposer();
 				break;
 			}
 			case 3:
@@ -166,9 +220,25 @@ int main()
 				banque.afficherSolde(anarana);
 				break;
 			}
-		}
-		i++;
-	} while (i < 20);
+			case 5:
+			{
+				banque.afficherListe();
+				break;
+			}
+			case 6:
+			{
 
-	
+			}
+			case 7:
+			{
+				exit(0);
+			}
+		}
+		cout << "Voulez-vous continuer : Oui / Non \nReponse : ";
+		cin >> choix2;
+		i++;
+	} while (choix2=="Oui");
+
+	cout << "\n====== Au revoir ! ======" << endl;
+	return 0;
 }
