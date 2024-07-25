@@ -17,7 +17,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,7 +31,7 @@
               "RelativeDocumentMoniker": "Simu_Banque\\Simu_Banque.cpp",
               "ToolTip": "C:\\Users\\PC\\Documents\\GitHub\\Simulateur_Banque\\Simu_Banque\\Simu_Banque.cpp",
               "RelativeToolTip": "Simu_Banque\\Simu_Banque.cpp",
-              "ViewState": "AQIAADAAAAAAAAAAAAAAAGMAAAAtAAAA",
+              "ViewState": "AQIAAKUAAAAAAAAAAAAUwLcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-07-24T06:32:55.126Z",
               "EditorCaption": ""
@@ -65,7 +65,7 @@
               "RelativeDocumentMoniker": "..\\..\\..\\source\\repos\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne.cpp",
               "ToolTip": "C:\\Users\\PC\\source\\repos\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne.cpp",
               "RelativeToolTip": "..\\..\\..\\source\\repos\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne\\Exercice_avec_menu_pour_personne.cpp",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACMAAAAPAAAA",
+              "ViewState": "AQIAAKIAAAAAAAAAAAAAANUAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-07-25T07:05:52.95Z",
               "EditorCaption": ""

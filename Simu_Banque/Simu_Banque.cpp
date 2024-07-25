@@ -64,8 +64,6 @@ struct Noeud
 	Noeud* suivant;
 };
 
-
-
 class Banque : private CompteBancaire
 {
 private:
@@ -168,9 +166,29 @@ public:
 			temp = temp->suivant;
 		}
 	}
+
+	void copieFichier()
+	{
+		fstream monFichier("listeComptes.txt", ios::out |ios ::app);
+		Noeud* temp = tete;
+		
+		while (temp != nullptr)
+		{
+			monFichier << "Nom : " << temp->comptes.getNom() << " \n";
+			monFichier << "Solde : " << temp->comptes.getSolde() << " $." << endl << endl;
+			temp = temp->suivant;
+		}
+		monFichier.close();
+	}
+
+	
 };
 
-
+void viderFichier(const string& nomFichier)
+{
+	ofstream monFichier(nomFichier, ios::out);
+	monFichier.close();
+}
 
 int main()
 {
@@ -188,7 +206,9 @@ int main()
 		cout << "3. Retirer de l'argent " << endl;
 		cout << "4. Afficher le solde " << endl;
 		cout << "5. Afficher tout les comptes " << endl;
-		cout << "7. Quitter " << endl;
+		cout << "6. Enregistrer dans un fichier " << endl;
+		cout << "7. Vider le fichier " << endl;
+		cout << "8. Quitter \n Reponse : " ;
 		cin >> choix1;
 
 		switch (choix1)
@@ -227,11 +247,22 @@ int main()
 			}
 			case 6:
 			{
-
+				banque.copieFichier();
+				break;
 			}
 			case 7:
 			{
+				viderFichier("listeComptes.txt");
+				cout << "Le fichier a ete vide." << endl;
+				break;
+			}
+			case 8:
+			{
 				exit(0);
+			}
+			default:
+			{
+				cout << "Choix invalide, veuillez reessayer. " << endl;
 			}
 		}
 		cout << "Voulez-vous continuer : Oui / Non \nReponse : ";
