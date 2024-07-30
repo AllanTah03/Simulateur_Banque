@@ -33,12 +33,12 @@ public:
 		cout << "Le solde est de : " << solde << " $. " << endl;
 	}
 	
-	double getSolde() const
+	double getSolde() const // Affichage du solde du compte
 	{
 		return solde;
 	}
 
-	string setNom(string name)
+	string setNom(string name) 
 	{
 		nom = name;
 	}
@@ -71,7 +71,7 @@ private:
 public:
 	int compteur; // Compteur pour suivre le nombre de compte créés
 	
-	Noeud* creerNoeud(CompteBancaire comptes)
+	Noeud* creerNoeud(CompteBancaire comptes) // Création de noeud
 	{
 		Noeud* nouveauNoeud = new Noeud();
 		nouveauNoeud->comptes = comptes;
@@ -79,14 +79,14 @@ public:
 		return nouveauNoeud;
 	}
 
-	void ajouterCompte( CompteBancaire comptes)
+	void ajouterCompte( CompteBancaire comptes) // Créer un nouveau compte en utilisant un nouveau noeud
 	{
 		Noeud* nouveauNoeud = creerNoeud(comptes);
 		nouveauNoeud->suivant = tete;
 		tete = nouveauNoeud;
 	}
 
-	void creerCompte()
+	void creerCompte() // Ajout du nom lors de la création du compte
 	{
 		string nom;
 		double solde_initial = 0.0;
@@ -100,7 +100,7 @@ public:
 		compteur++;
 	}
 
-	void deposer(string nom, double montant)
+	void deposer(string nom, double montant) // Dépôt d'argent dans le solde du compte
 	{
 		Noeud* temp = tete;
 
@@ -120,7 +120,7 @@ public:
 		
 	}
 
-	void retirer(string nom, double montant)
+	void retirer(string nom, double montant) // Retrait d'argent du compte
 	{
 		Noeud* temp = tete;
 
@@ -139,7 +139,7 @@ public:
 		cout << "Compte non trouve. " << endl;
 	}
 
-	void afficherSolde(string nom)
+	void afficherSolde(string nom) // Affichage du solde du compte
 	{
 		Noeud* temp = tete;
 
@@ -154,7 +154,7 @@ public:
 		}
 	}
 
-	void afficherListe()
+	void afficherListe() // Affiche tout les comptes bancaires existants et enregistrés
 	{
 		Noeud* temp = tete;
 		cout << "Liste des comptes bancaires existants : " << endl;
@@ -167,7 +167,7 @@ public:
 		}
 	}
 
-	void copieFichier()
+	void copieFichier() // Enregistrement du Nom et du solde d'un compte dans un fichier txt
 	{
 		fstream monFichier("listeComptes.txt", ios::out |ios ::app);
 		Noeud* temp = tete;
@@ -184,7 +184,7 @@ public:
 	
 };
 
-void viderFichier(const string& nomFichier)
+void viderFichier(const string& nomFichier) // Vide totalemtn le fichier
 {
 	ofstream monFichier(nomFichier, ios::out);
 	monFichier.close();
